@@ -6,10 +6,6 @@ using Microsoft.EntityFrameworkCore;
 namespace ConsoleApplication {
     public class Startup {
         public void ConfigureServices(IServiceCollection services) {
-            services.AddDbContext<WorkshopContext>(options =>
-            {
-                options.UseInMemoryDatabase();
-            });
             services.AddMvc();
         }
 
