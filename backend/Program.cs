@@ -1,4 +1,7 @@
-using System;
+
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Builder;
+using System.IO;
 
 namespace ConsoleApplication
 {
@@ -6,8 +9,12 @@ namespace ConsoleApplication
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadLine();
+            var host = new WebHostBuilder()
+                                .UseKestrel()
+                                .UseStartup<Startup>()
+                                .UseContentRoot(Directory.GetCurrentDirectory())
+                                .Build();
+            host.Run();
         }
     }
 }
