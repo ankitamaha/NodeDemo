@@ -6,9 +6,10 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY project.json /usr/src/app/
+RUN dotnet restore
 
-# run with a timeout, dotnet restore has hung for me in docker run
-RUN timeout 60 dotnet restore
+# Compile the backend code
+RUN dotnet build
 
 # Bundle app source
 COPY . /usr/src/app
