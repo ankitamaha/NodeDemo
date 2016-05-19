@@ -1,0 +1,13 @@
+{
+  "name": "docker_frontend",
+  "version": "1.0.0",
+  "description": "Node.js Frontend on Docker",
+  "author": "Jared Barboza <jared.m.barboza@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
