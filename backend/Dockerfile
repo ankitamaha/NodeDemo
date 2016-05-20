@@ -5,11 +5,11 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Install app dependencies
-COPY project.json /usr/src/app/
+COPY ./App/project.json /usr/src/app/
 RUN dotnet restore
 
 # Bundle app source
-COPY . /usr/src/app
+COPY ./App /usr/src/app
 
 # Compile the backend code
 RUN dotnet build
