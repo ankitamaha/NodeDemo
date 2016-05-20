@@ -11,5 +11,3 @@ services:
      - backend
   backend:
     build: ./backend
-    ports:
-     - "9000:5000"
