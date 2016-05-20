@@ -8,11 +8,11 @@ WORKDIR /usr/src/app
 COPY project.json /usr/src/app/
 RUN dotnet restore
 
-# Compile the backend code
-RUN dotnet build
-
 # Bundle app source
 COPY . /usr/src/app
+
+# Compile the backend code
+RUN dotnet build
 
 EXPOSE 5000
 CMD [ "dotnet", "run" ]
