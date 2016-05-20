@@ -13,6 +13,8 @@ app.get('/', function (req, res) {
   request(`http://${BACKEND}:5000/api`, (err, r, body) => {
     if (!err && res.statusCode == 200) {
       res.send(body);
+    } else {
+      res.send(err.stack);
     }
   });
 });
