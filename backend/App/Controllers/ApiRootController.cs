@@ -7,7 +7,7 @@ namespace DockerTestProject {
         [HttpGet]
         public object Get() {
             return new {
-                Users = "/api/users",
+                Guid = Guid.NewGuid(),
                 Now = DateTime.Now.ToString()
             };
         }
