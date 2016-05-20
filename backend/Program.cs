@@ -13,6 +13,7 @@ namespace ConsoleApplication
                                 .UseKestrel()
                                 .UseStartup<Startup>()
                                 .UseContentRoot(Directory.GetCurrentDirectory())
+                                .UseUrls("http://0.0.0.0:5000")
                                 .Build();
             host.Run();
         }
