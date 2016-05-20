@@ -5,8 +5,9 @@ namespace ConsoleApplication {
     public class ApiRootController : Controller {
         [HttpGet]
         public object Get() {
-            return new { 
-                Users = "/api/users"
+            return new {
+                Users = "/api/users",
+                Now = DateTime.Now.ToString()
             };
         }
     }
