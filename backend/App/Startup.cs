@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 
+using DockerTestProject.Middleware;
+
 namespace DockerTestProject {
     public class Startup {
         public void ConfigureServices(IServiceCollection services) {
@@ -14,13 +16,16 @@ namespace DockerTestProject {
                 connectionString = "postgres://postgres@localhost/docker-test-project";
             }
             services.AddDbContext<DTPContext>(options =>
-                options.UseNpgsql( connectionString )
+                options.UseNpgsql( StartupHelper.GetConnectionString(connectionString) )
             );
             services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory) {
             loggerFactory.AddConsole(LogLevel.Debug);
+
+            // load our custom middleware
+            app.UseRequestId();
 
             app.UseFileServer();
 

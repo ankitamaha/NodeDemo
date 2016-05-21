@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DockerTestProject {
+namespace DockerTestProject.Controllers {
     [Route("/api")]
     public class ApiRootController : Controller {
         [HttpGet]
