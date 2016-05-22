@@ -7,5 +7,12 @@ namespace DockerTestProject.Models {
         }
 
         public DbSet<Profile> Profiles { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+          modelBuilder.Entity<Profile>(b => {
+            b.HasKey(e => e.Id);
+            b.Property(e => e.Id).ValueGeneratedOnAdd();
+          });
+        }
     }
 }
