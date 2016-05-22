@@ -17,11 +17,7 @@ services:
      - db
   db:
     image: postgres
-    volumes_from:
-     - data
+    volumes:
+     - /var/docker/postgresql:/var/lib/postgresql
     environment:
      - POSTGRES_PASSWORD=mysecretpassword
-  data:
-    image: busybox
-    volumes:
-     - "/var/lib/postgresql"

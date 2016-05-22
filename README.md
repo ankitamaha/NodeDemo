@@ -11,16 +11,20 @@ Prerequisites
  - [nodejs](http://nodejs.org) v6.x
  - [docker](https://www.docker.com/) (Optional) for deployment (or running locally if you want to run it that way)
 
+You'll also need to create a folder for the postgres image to store the database, so it doesn't get wiped out when we stop the container.
+
+```bash
+$ sudo mkdir -p /var/docker/postgresql && chmod 755 /var/docker/postgresql
+```
+
 Infrastructure (Docker)
 -----------------------
 
-This project defines 4 containers via the [docker-compose.yml](./docker-compose.yml) file in the root of the project. The containers are named `frontend`, `backend`, `db` and `data`.
+This project defines 3 containers via the [docker-compose.yml](./docker-compose.yml) file in the root of the project. The containers are named `frontend`, `backend`, and `db`.
 
 `frontend` will contain our nodejs application that is built on top of express and react. It will also act as a proxy for API requests to our `backend` application.
 
 `backend` will contain our asp.net 5 core application that handles all interaction with the postgres database running in the `db` container.
-
-`data` is what is called a "data container" in docker. It only exists to expose a volume of data to another container. Data containers allow us to upgrade our database container without fear of wiping our database data.
 
 ![https://docs.google.com/drawings/d/199Ym5d6jrl4_4IOGT1boWgSAMdis8w1diVqc-YT-2IE/pub?w=791&h=772](https://docs.google.com/drawings/d/199Ym5d6jrl4_4IOGT1boWgSAMdis8w1diVqc-YT-2IE/pub?w=791&h=772)
 
