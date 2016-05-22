@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using DockerTestProject;
+using DockerTestProject.Models;
 
 namespace backend.Migrations
 {
@@ -15,7 +15,7 @@ namespace backend.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rc2-20896");
 
-            modelBuilder.Entity("DockerTestProject.Profile", b =>
+            modelBuilder.Entity("DockerTestProject.Models.Profile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();

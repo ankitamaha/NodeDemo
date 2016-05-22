@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+using DockerTestProject.Models;
+
 namespace DockerTestProject.Controllers {
     [Route("/api/[controller]")]
     public class ProfilesController : Controller {

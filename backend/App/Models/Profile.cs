@@ -1,4 +1,4 @@
-namespace DockerTestProject {
+namespace DockerTestProject.Models {
     public class Profile {
         public int Id { get; set; }
         public string AvatarURL { get; set; }

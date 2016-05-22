@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace DockerTestProject {
+namespace DockerTestProject.Models {
     public class DTPContext : DbContext {
         public DTPContext(DbContextOptions<DTPContext> options) : base(options) {
 
