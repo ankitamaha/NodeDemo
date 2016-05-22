@@ -6,6 +6,7 @@ This is pretty much just a fun excuse to experiment with dotnet core, node 6 and
 Prerequisites
 -------------
 
+ - Ubuntu 14.04, you can use the prebuilt docker droplet on digital ocean
  - postgres. I used [Postgres.app](http://postgresapp.com/) and [Postico](https://eggerapps.at/postico/) because they are the easiest way to get postgres installed on your mac.
  - [dotnet core sdk](http://dot.net).
  - [nodejs](http://nodejs.org) v6.x
@@ -16,6 +17,8 @@ You'll also need to create a folder for the postgres image to store the database
 ```bash
 $ sudo mkdir -p /var/docker/postgresql && chmod 755 /var/docker/postgresql
 ```
+
+_Special Note:_ If you're using a smaller droplet from digital ocean, you'll probably need to setup a swapfile like I did or the `frontend` container will fail to build because it runs out of memory when it installs the dependencies from npm. [Thankfully, digital ocean has a great guide on setting up a swapfile in Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04) which worked perfectly for me!
 
 Infrastructure (Docker)
 -----------------------
