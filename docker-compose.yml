@@ -11,3 +11,17 @@ services:
      - backend
   backend:
     build: ./backend
+    environment:
+     DATABASE_CONNECTION: "postgresql://postgres:mysecretpassword@db/docker-test-project"
+    links:
+     - db
+  db:
+    image: postgres
+    volumes_from:
+     - data
+    environment:
+     - POSTGRES_PASSWORD=mysecretpassword
+  data:
+    image: busybox
+    volumes:
+     - "/var/lib/postgresql"
