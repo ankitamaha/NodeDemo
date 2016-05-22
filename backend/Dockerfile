@@ -14,8 +14,6 @@ COPY ./App /usr/src/app
 # Compile the backend code
 RUN dotnet build
 
-# Migrate the database
-RUN dotnet ef database update
-
 EXPOSE 5000
-CMD [ "dotnet", "run" ]
+CMD dotnet ef database update && \
+    dotnet run
